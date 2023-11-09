@@ -1,23 +1,26 @@
 find_path_modified <- function(from_node, to_node, edge_list, nodes_already_visited) {
   
+  paths <- matrix(nrow=0, ncol=2)
+  
   if(from_node == to_node) {
-    message("Hurray, we have arrived!")
-    print(c(nodes_already_visited, to_node))
-    return(c(nodes_already_visited))
+    holder <- c(nodes_already_visited, to_node) #won't print no node
+    print("Holder is made") #test
+    print(holder)
+    #return (c((nodes_already_visited), to_node))
   }
   
-  edges <- c(edge_list)
+  edges_long <- c(edge_list)
   
   nodes_already_visited <- c(nodes_already_visited, from_node)
   
   our_connections = c()
   count = 1
   
-  for(x in edges$Edges) { #need to fix the for loop
+  for(x in edges_long$Edges) { #need to fix the for loop
     check = FALSE
-    if(edges$From[x] == from_node) {
+    if(edges_long$From[x] == from_node) {
       for(y in nodes_already_visited) {
-        if (y == edges$To[x]) {
+        if (y == edges_long$To[x]) {
           check = TRUE
         }
       }
@@ -28,7 +31,7 @@ find_path_modified <- function(from_node, to_node, edge_list, nodes_already_visi
   }
   
   for(x in our_connections) {
-    find_path_modified(x, to_node, edge_list, nodes_already_visited)
+    find_path(x, to_node, edge_list, nodes_already_visited)
   }
 }
 

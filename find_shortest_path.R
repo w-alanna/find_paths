@@ -18,14 +18,25 @@ find_shortest_path <- function(from_node, to_node, edge_list) {
   row_count <- 1
   print(different_paths) #test
   
-  for(x in edges_long$Edges) {
-    if(edges_long$From[x] == from_node) {
-      print("inside if statement") #holder
-      holder = find_path_modified(edges$To[x], edges_extended, nodes_already_visited = NULL)
-      print(holder) #test
-      different_paths[row_count, 1] <- col_count
-      different_paths[row_count, 2] <- c(from_node, holder)
-      print(different_paths) #test
+  holder <- matrix()
+
+  holder <- find_path_modified(edges$To[x], edges_extended, nodes_already_visited = NULL)
+  
+  
+  
+  
+  
+  
+  
+  
+  #for(x in edges_long$Edges) {
+   # if(edges_long$From[x] == from_node) {
+    #  print("inside if statement") #holder
+     # holder = find_path_modified(edges$To[x], edges_extended, nodes_already_visited = NULL)
+    #  print(holder) #test
+    #  different_paths[row_count, 1] <- col_count
+    #  different_paths[row_count, 2] <- c(from_node, holder)
+    #  print(different_paths) #test
       
       #length <- length(different_paths[row_count, 2] - 1)
       #total = 0
@@ -37,8 +48,8 @@ find_shortest_path <- function(from_node, to_node, edge_list) {
       #  }
        # different_paths[row_count, 3] = total
       #}
-    }
-  }
+  #  }
+#  }
   
   #lowest = different_paths[3, 1]
   #index = 1
@@ -57,3 +68,5 @@ find_shortest_path <- function(from_node, to_node, edge_list) {
   
   
 }
+
+#find_shortest_path("A", "D", edges_extended)
